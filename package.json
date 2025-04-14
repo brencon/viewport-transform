@@ -11,8 +11,9 @@
     "test:coverage": "jest --coverage",
     "coveralls": "jest --coverage && coveralls < coverage/lcov.info",
     "lint": "eslint src test",
+    "lint:fix": "eslint --fix src test",
     "build": "babel src --out-dir lib",
-    "prepublishOnly": "npm run lint && npm run test && npm run build"
+    "prepublishOnly": "npm run lint:fix && npm run test && npm run build"
   },
   "publishConfig": {
     "access": "public",

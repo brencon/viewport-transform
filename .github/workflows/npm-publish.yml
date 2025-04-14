@@ -26,6 +26,8 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - name: Fix linting issues
+        run: npx eslint --fix src test
       - run: npm run build
       - name: Set up npm authentication
         run: |
