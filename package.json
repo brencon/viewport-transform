@@ -15,7 +15,8 @@
     "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "viewport",
