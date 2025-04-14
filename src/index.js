@@ -7,18 +7,6 @@
  */
 class ViewportTransform {
   /**
-   * Default minimum zoom level
-   * @type {number}
-   */
-  MIN_ZOOM = 0.1;
-  
-  /**
-   * Default maximum zoom level
-   * @type {number}
-   */
-  MAX_ZOOM = 10;
-  
-  /**
    * Event types for the ViewportTransform
    * @type {Object}
    */
@@ -63,6 +51,12 @@ class ViewportTransform {
     viewportWidth,
     viewportHeight
   }) {
+    // Default minimum zoom level
+    this.MIN_ZOOM = 0.1;
+    
+    // Default maximum zoom level
+    this.MAX_ZOOM = 10;
+    
     // Store dimensions
     this.imageWidth = imageWidth;
     this.imageHeight = imageHeight;

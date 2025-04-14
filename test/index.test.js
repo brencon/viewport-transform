@@ -547,6 +547,11 @@ describe('animation polyfills', () => {
     originalWindow = global.window;
     originalTimeout = global.setTimeout;
     originalClearTimeout = global.clearTimeout;
+    
+    // Create a mock window if it doesn't exist
+    if (typeof global.window === 'undefined') {
+      global.window = {};
+    }
   });
   
   afterEach(() => {
@@ -561,7 +566,7 @@ describe('animation polyfills', () => {
     delete global.window;
     
     // Mock setTimeout and clearTimeout
-    const mockSetTimeout = jest.fn((callback, ms) => 999);
+    const mockSetTimeout = jest.fn((_callback, _ms) => 999);
     const mockClearTimeout = jest.fn();
     global.setTimeout = mockSetTimeout;
     global.clearTimeout = mockClearTimeout;
@@ -577,29 +582,29 @@ describe('animation polyfills', () => {
     
     // Test raf
     const callback = jest.fn();
-    const id = raf(callback);
+    const timeoutId = raf(callback);
     
     // Verify setTimeout was called
     expect(mockSetTimeout).toHaveBeenCalledWith(callback, 16);
     
     // Test caf
-    caf(id);
+    caf(timeoutId);
     
     // Verify clearTimeout was called
-    expect(mockClearTimeout).toHaveBeenCalledWith(id);
+    expect(mockClearTimeout).toHaveBeenCalledWith(timeoutId);
   });
   
   test('should use window.requestAnimationFrame when available', () => {
     // Create fake window with requestAnimationFrame
     global.window = {
-      requestAnimationFrame: jest.fn(cb => 123)
+      requestAnimationFrame: jest.fn((_cb) => 123)
     };
     
     const raf = getRequestAnimationFrame();
     const callback = jest.fn();
     
     // Call raf
-    const id = raf(callback);
+    raf(callback);
     
     // Verify window.requestAnimationFrame was called
     expect(window.requestAnimationFrame).toHaveBeenCalledWith(callback);
@@ -623,14 +628,14 @@ describe('animation polyfills', () => {
   test('should fallback to webkitRequestAnimationFrame', () => {
     // Create fake window with vendor prefixed function
     global.window = {
-      webkitRequestAnimationFrame: jest.fn(cb => 123)
+      webkitRequestAnimationFrame: jest.fn((_cb) => 123)
     };
     
     const raf = getRequestAnimationFrame();
     const callback = jest.fn();
     
     // Call raf
-    const id = raf(callback);
+    raf(callback);
     
     // Verify webkit prefixed function was called
     expect(window.webkitRequestAnimationFrame).toHaveBeenCalledWith(callback);
@@ -639,14 +644,14 @@ describe('animation polyfills', () => {
   test('should fallback to mozRequestAnimationFrame', () => {
     // Create fake window with vendor prefixed function
     global.window = {
-      mozRequestAnimationFrame: jest.fn(cb => 123)
+      mozRequestAnimationFrame: jest.fn((_cb) => 123)
     };
     
     const raf = getRequestAnimationFrame();
     const callback = jest.fn();
     
     // Call raf
-    const id = raf(callback);
+    raf(callback);
     
     // Verify moz prefixed function was called
     expect(window.mozRequestAnimationFrame).toHaveBeenCalledWith(callback);
@@ -687,14 +692,14 @@ describe('animation polyfills', () => {
     global.window = {};
     
     // Mock setTimeout
-    const mockSetTimeout = jest.fn((callback, ms) => 999);
+    const mockSetTimeout = jest.fn((_callback, _ms) => 999);
     global.setTimeout = mockSetTimeout;
     
     const raf = getRequestAnimationFrame();
     const callback = jest.fn();
     
     // Call raf
-    const id = raf(callback);
+    raf(callback);
     
     // Verify setTimeout was called
     expect(mockSetTimeout).toHaveBeenCalledWith(callback, 16);

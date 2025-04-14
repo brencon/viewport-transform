@@ -3,11 +3,13 @@ module.exports = {
     "node": true,
     "commonjs": true,
     "es2021": true,
-    "jest": true
+    "jest": true,
+    "browser": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 12
+    "ecmaVersion": 2022,
+    "sourceType": "module"
   },
   "rules": {
     "indent": ["error", 2],
@@ -18,5 +20,11 @@ module.exports = {
     "no-console": "warn",
     "no-undef": "error",
     "prefer-const": "error"
+  },
+  "globals": {
+    "window": "readonly",
+    "document": "readonly",
+    "requestAnimationFrame": "readonly",
+    "cancelAnimationFrame": "readonly"
   }
 };
