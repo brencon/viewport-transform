@@ -3,8 +3,8 @@
 A lightweight, platform-agnostic utility for handling coordinate transformations between an original image and a viewport at different zoom levels and pan positions.
 
 [![npm version](https://img.shields.io/npm/v/viewport-transform.svg)](https://www.npmjs.com/package/viewport-transform)
-[![Build Status](https://travis-ci.org/yourusername/viewport-transform.svg?branch=main)](https://travis-ci.org/yourusername/viewport-transform)
-[![Coverage Status](https://coveralls.io/repos/github/yourusername/viewport-transform/badge.svg?branch=main)](https://coveralls.io/github/yourusername/viewport-transform?branch=main)
+[![Build Status](https://travis-ci.org/brencon/viewport-transform.svg?branch=main)](https://travis-ci.org/brencon/viewport-transform)
+[![Coverage Status](https://coveralls.io/repos/github/brencon/viewport-transform/badge.svg?branch=main)](https://coveralls.io/github/brencon/viewport-transform?branch=main)
 
 ## Installation
 
