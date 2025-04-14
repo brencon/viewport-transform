@@ -1,12 +1,10 @@
 {
   "name": "viewport-transform",
   "version": "0.1.0",
-  "description": "A utility for handling coordinate transformations between an original image and a viewport at different zoom levels",
+  "description": "A utility for handling coordinate transformations between an original image and a viewport",
   "main": "lib/index.js",
   "files": [
-    "lib",
-    "README.md",
-    "LICENSE"
+    "lib/**/*"
   ],
   "scripts": {
     "test": "jest",
@@ -15,6 +13,9 @@
     "lint": "eslint src test",
     "build": "babel src --out-dir lib",
     "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "viewport",
