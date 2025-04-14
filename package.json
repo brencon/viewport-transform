@@ -1,0 +1,46 @@
+{
+  "name": "viewport-transform",
+  "version": "0.1.0",
+  "description": "A utility for handling coordinate transformations between an original image and a viewport at different zoom levels",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src test",
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "keywords": [
+    "viewport",
+    "transform",
+    "image",
+    "crop",
+    "zoom",
+    "coordinates"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/viewport-transform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/viewport-transform/issues"
+  },
+  "homepage": "https://github.com/yourusername/viewport-transform#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
